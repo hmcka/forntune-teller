@@ -1,20 +1,32 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FortuneTeller {
 
+	//test the opposite of all variables for all questions
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 
 		System.out.println("What is your first name?");
 		String firstName = input.nextLine();
-
+ 
 		String lastName;
 		System.out.println("What is your last name?");
 		lastName = input.nextLine();
 
-		int ageInYears;
-		System.out.println("What is your age?");
-		ageInYears = input.nextInt();
+		int ageInYears = 0;
+		boolean success = false;
+        while (!success) {
+            try {
+                System.out.print("Enter your age in years: ");
+                ageInYears = input.nextInt();
+                success = true;
+            } catch (InputMismatchException e) {
+                input.next();
+                System.out.println("You have entered invalid data.");
+            }
+        }
 		
 		String yearsUntilRetirement;
 		if(ageInYears % 2 == 0)
@@ -22,10 +34,22 @@ public class FortuneTeller {
         else
 			yearsUntilRetirement = "44";
 
-		int birthMonth;
-		System.out.println("What is the number of your birth month?");
-		birthMonth = input.nextInt();
-		input.nextLine();
+		int birthMonth = 0;
+		success = false;
+        while (!success) {
+            try {
+                System.out.print("What month were you born in? ");
+                birthMonth = input.nextInt();
+                success = true;
+            } catch (InputMismatchException e) {
+                input.next();
+                System.out.println("You have entered invalid data.");
+            }
+        }
+		
+		//System.out.println("What is the number of your birth month?");
+		//birthMonth = input.nextInt();
+		//input.nextLine();
 		
 		String bankAccount;
 		if(birthMonth >= 1 && birthMonth <=4)
@@ -37,6 +61,8 @@ public class FortuneTeller {
         else
         	bankAccount = "$4444";
 
+		//Must work for either capital or lower case.
+		//		while(!userName.equalsIgnoreCase(userNameEntered))   {
 		String favoriteColor;
 		System.out.println("What is your favorite ROYGBIV color? Type help to get a list of options.");
 		favoriteColor = input.nextLine();
