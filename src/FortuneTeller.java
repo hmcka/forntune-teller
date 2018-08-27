@@ -37,82 +37,54 @@ public class FortuneTeller {
         else
         	bankAccount = "$4444";
 
-		// Ask the user for the user’s favorite ROYGBIV color. favoriteColor
-		// If the user does not know what ROYGBIV is, ask the user to enter “Help” to
-		// get a list of the ROYGBIV colors.
-		//String x;
-		//if (x.equals("hello")
 		String favoriteColor;
 		System.out.println("What is your favorite ROYGBIV color? Type help to get a list of options.");
 		favoriteColor = input.nextLine();
 		
 		String transportation = null;
-		Boolean activeColor = false;
-		while (activeColor == false) {
+		//Boolean activeColor = false;
+		while (transportation == null) {
 			if (favoriteColor.equals("red")){
 			transportation="scooter";
-			activeColor = true;
+			//activeColor = true;
 		}
 		else if (favoriteColor.equals("orange")){
 			transportation="jet pack";
-			activeColor = true;
+			//activeColor = true;
 		}
 		else if (favoriteColor.equals("yellow")){
 			transportation="hot air balloon";
-			activeColor = true;
+			//activeColor = true;
 		}
 		else if (favoriteColor.equals("green")){
 			transportation="car";
-			activeColor = true;
+			// = true;
 		}
 		else if (favoriteColor.equals("blue")){
 			transportation="train";
-			activeColor = true;
+			//activeColor = true;
 		}
 		else if (favoriteColor.equals("indigo")){
 			transportation="goat";
-			activeColor = true;
+			//activeColor = true;
 		}
 		else if (favoriteColor.equals("violet")){
 			transportation="bus";
-			activeColor = true;
+			//activeColor = true;
 		}
 		else if (favoriteColor.equals("help")){
 			System.out.println("ROYGBIV means that you can pick from this color palette: red, orange, yellow, green, indigo and violet.");
-			activeColor = true;
-}
+			System.out.println("What is your favorite ROYGBIV color? Type help to get a list of options.");
+			favoriteColor = input.nextLine();
+			transportation = null;
+		}
 		else {
         	System.out.println("Select one of the six colors, or type help if you are confused."); 
+        	favoriteColor = input.nextLine();
+			transportation = null;
 		}
 	}
-		//switch(favoriteColor) {
-        //case "Red" :
-        	//System.out.println("scooter"); 
-            //break;
-        //case "Orange" :		
-        	//System.out.println("jet pack"); 
-            //break;
-        //case "Yellow" :
-		//	System.out.println("hot air balloon"); 
-		//  break;
-		//case "Green" :
-		//System.out.println("car"); 
-		//  break;        
-		//case "Blue" :
-		//System.out.println("train"); 
-		//  break;
-		//case "Indigo" :
-		//System.out.println("goat"); 
-		//  break;
-		//case "Violet" :
-		//System.out.println("bus"); 
-		//  break;
-		//case "Help" :
-		//  System.out.println("ROYGBIV means that you can pick from this color palette: red, orange, yellow, green, indigo and violet.");
-		//  break;
-		//default :
-		// System.out.println("Select one of the six colors, or type help if you are confused.");
-		//	}
+		
 
 		System.out.println("How many siblings do you have?");
 		int siblings = input.nextInt();
@@ -139,3 +111,5 @@ public class FortuneTeller {
 	}
 
 }
+
+
