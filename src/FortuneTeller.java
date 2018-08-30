@@ -6,6 +6,7 @@ public class FortuneTeller {
 	//test the opposite of all variables for all questions
 	
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 
 		System.out.println("What is your first name?");
@@ -129,15 +130,15 @@ public class FortuneTeller {
 		if (siblings==0) {
 			location = "Bora Bora";
 		} else if (siblings==1) {
-			location = "Rome";
+			location = "Tuscani";
 		}	else if (siblings==2) {
-			location = "Hawaii";
+			location = "Costa Rica";
 		}	else if (siblings==3) {
 			location = "Capetown";
 		}	else if (siblings>3) {
 			location = "Bahamas";
 		}	else {
-			location = "Chernobyl";
+			location = "Hawaii, by the volcano";
 		}
 		
 		System.out.println(firstName + " " + lastName + 
@@ -145,7 +146,6 @@ public class FortuneTeller {
 				" in the bank and a vacation home in " + location + ". You enjoy traveling by " + transportation + ".");
 		
 	}
-
 }
 
 
