@@ -21,7 +21,13 @@ public class FortuneTeller {
             try {
                 System.out.print("Enter your age in years: ");
                 ageInYears = input.nextInt();
-                success = true;
+                if (ageInYears>0) {
+                	success = true;
+                }
+                else if (ageInYears <= 0) {
+                    System.out.print("Come on... you are older than that. ");
+
+                }
             } catch (InputMismatchException e) {
                 input.next();
                 System.out.println("You have entered invalid data.");
@@ -38,68 +44,63 @@ public class FortuneTeller {
 		success = false;
         while (!success) {
             try {
-                System.out.print("What month were you born in? ");
+                System.out.print("What is the number of the month were you born in? ");
                 birthMonth = input.nextInt();
-                success = true;
+                if (birthMonth <= 0) {
+                    System.out.print("Seriously. ");
+                	}
+                else if (birthMonth > 12) {
+                    System.out.print("Seriously. ");
+                }
+                else if (birthMonth <= 12) {
+                	success = true;
+                }
+                
             } catch (InputMismatchException e) {
                 input.next();
                 System.out.println("You have entered invalid data.");
             }
         }
 		
-		//System.out.println("What is the number of your birth month?");
-		//birthMonth = input.nextInt();
-		//input.nextLine();
-		
 		String bankAccount;
 		if(birthMonth >= 1 && birthMonth <=4)
-			bankAccount = "$14";
+			bankAccount = "a billion dollars";
         else if (birthMonth >= 5 && birthMonth <=8)
-        	bankAccount = "$44";
+        	bankAccount = "5,000 pennies";
         else if (birthMonth >= 9 && birthMonth <=12)
-        	bankAccount = "$444";
+        	bankAccount = "$445,678";
         else
-        	bankAccount = "$4444";
+        	bankAccount = "$109,000";
 
-		//Must work for either capital or lower case.
-		//		while(!userName.equalsIgnoreCase(userNameEntered))   {
 		String favoriteColor;
-		System.out.println("What is your favorite ROYGBIV color? Type help to get a list of options.");
+		System.out.print("What is your favorite ROYGBIV color? ");
 		favoriteColor = input.nextLine();
 		
 		String transportation = null;
-		//Boolean activeColor = false;
 		while (transportation == null) {
-			if (favoriteColor.equals("red")){
+			if (favoriteColor.equalsIgnoreCase("red")){
 			transportation="scooter";
-			//activeColor = true;
 		}
-		else if (favoriteColor.equals("orange")){
+		else if (favoriteColor.equalsIgnoreCase("orange")){
 			transportation="jet pack";
-			//activeColor = true;
 		}
-		else if (favoriteColor.equals("yellow")){
+		else if (favoriteColor.equalsIgnoreCase("yellow")){
 			transportation="hot air balloon";
-			//activeColor = true;
 		}
-		else if (favoriteColor.equals("green")){
+		else if (favoriteColor.equalsIgnoreCase("green")){
 			transportation="car";
-			// = true;
 		}
-		else if (favoriteColor.equals("blue")){
+		else if (favoriteColor.equalsIgnoreCase("blue")){
 			transportation="train";
-			//activeColor = true;
 		}
-		else if (favoriteColor.equals("indigo")){
+		else if (favoriteColor.equalsIgnoreCase("indigo")){
 			transportation="goat";
-			//activeColor = true;
 		}
-		else if (favoriteColor.equals("violet")){
+		else if (favoriteColor.equalsIgnoreCase("violet")){
 			transportation="bus";
-			//activeColor = true;
 		}
-		else if (favoriteColor.equals("help")){
-			System.out.println("ROYGBIV means that you can pick from this color palette: red, orange, yellow, green, indigo and violet.");
+		else if (favoriteColor.equalsIgnoreCase("help")){
+			System.out.println("ROYGBIV means that you can pick from this color palette: red, orange, yellow, green, blue, indigo and violet.");
 			System.out.println("What is your favorite ROYGBIV color? Type help to get a list of options.");
 			favoriteColor = input.nextLine();
 			transportation = null;
@@ -111,9 +112,18 @@ public class FortuneTeller {
 		}
 	}
 		
-
-		System.out.println("How many siblings do you have?");
-		int siblings = input.nextInt();
+		int siblings = 0;
+		success = false;
+        while (!success) {
+            try {
+                System.out.print("How many siblings do you have? ");
+                siblings = input.nextInt();
+                success = true;
+            } catch (InputMismatchException e) {
+                input.next();
+                System.out.println("You have entered invalid data.");
+            }
+        }
 		
 		String location;
 		if (siblings==0) {
@@ -132,7 +142,7 @@ public class FortuneTeller {
 		
 		System.out.println(firstName + " " + lastName + 
 				" will retire in " + yearsUntilRetirement + " years with " + bankAccount + 
-				" in the bank and a vacation home in " + location + " and travel by " + transportation + ".");
+				" in the bank and a vacation home in " + location + ". You enjoy traveling by " + transportation + ".");
 		
 	}
 
